@@ -1,10 +1,3 @@
-// Zed keymap
-//
-// For information on binding keys, see the Zed
-// documentation: https://zed.dev/docs/key-bindings
-//
-// To see the default key bindings run `zed: open default keymap`
-// from the command palette.
 [
   {
     "context": "Editor && showing_completions",
@@ -36,8 +29,8 @@
       "space r": "editor::Rename",
       "g d": "editor::GoToDefinition",
       "g D": "editor::GoToDefinitionSplit",
-      "g i": "editor::GoToImplementation",
-      "g I": "editor::GoToImplementationSplit",
+      // "g i": "editor::GoToImplementation",
+      // "g I": "editor::GoToImplementationSplit",
       "g t": "editor::GoToTypeDefinition",
       "g T": "editor::GoToTypeDefinitionSplit",
       "g r": "editor::FindAllReferences",
@@ -110,6 +103,24 @@
     "context": "Editor",
     "bindings": {
       "ctrl-;": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-p": null
+    }
+  },
+  {
+    "context": "(FileFinder || FileFinder > Picker > Editor)",
+    "bindings": {
+      "ctrl-p": "menu::SelectPrevious"
+    }
+  },
+  {
+    "context": "((FileFinder || FileFinder > Picker > Editor) || FileFinder > Picker > menu)",
+    "bindings": {
+      "ctrl-shift-p": null
     }
   }
 ]
