@@ -1,6 +1,13 @@
 {
+  "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini"
+    },
+    "model_parameters": []
+  },
   "icon_theme": "Colored Zed Icons Theme Dark",
-  "disable_ai": true,
+  "disable_ai": false,
   "show_edit_predictions": false,
   "base_keymap": "VSCode",
   "vim_mode": true,
@@ -14,9 +21,9 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark"
+    "dark": "Fleet Dark"
   },
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "scrollbar": {
     "show": "never"
   },
@@ -25,17 +32,15 @@
     "quick_actions": false
   },
   "enable_language_server": true,
-  "file_scan_exclusions": ["**/build"],
   "format_on_save": "on",
   "lsp": {
-    "clang": {
+    "clangd": {
       "binary": {
+        // "path": "C:\\Program Files\\LLVM\\bin\\clangd.exe",
         "arguments": [
           "--clang-tidy",
-          "--completion-style=detailed",
-          "--header-insertion=iwyu",
-          "--completion-style=detailed",
-          "--function-arg-placeholders=false"
+          "--function-arg-placeholders=0",
+          "--header-insertion=never"
         ]
       }
     }
@@ -43,8 +48,7 @@
   "debugger": {
     "save_breakpoints": false,
     "dock": "left",
-    "timeout": 10000,
-    "save_breakpoints": false
+    "timeout": 10000
   },
-   "show_signature_help_after_edits": false,
+  "show_signature_help_after_edits": false
 }
