@@ -1,0 +1,19 @@
+[
+  {
+    "label": "LazyGit (Graph View)",
+    "command": "lazygit",
+    "args": [
+      "log",
+      "--screen-mode",
+      "full",
+      "--use-config-dir",
+      "~/.config/lazygit/"
+    ],
+    "hide": "on_success",
+    "reveal_target": "center",
+    "show_summary": false,
+    "show_command": false,
+    "allow_concurrent_runs": false,
+    "use_new_terminal": false
+  }
+]
