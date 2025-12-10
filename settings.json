@@ -1,23 +1,21 @@
 {
-  "agent": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5-mini"
-    },
-    "model_parameters": []
+  "git_panel": {
+    "sort_by_path": false
   },
-  "icon_theme": "Colored Zed Icons Theme Dark",
-  "disable_ai": false,
+  "icon_theme": "Material Icon Theme",
   "show_edit_predictions": false,
   "base_keymap": "VSCode",
   "vim_mode": true,
-  "vim": {},
+  "vim": {
+    "use_system_clipboard": "on_yank"
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
   "ui_font_size": 15,
   "buffer_font_size": 14,
+  "buffer_font_family": "Consolas",
   "theme": {
     "mode": "system",
     "light": "One Light",
@@ -33,22 +31,22 @@
   },
   "enable_language_server": true,
   "format_on_save": "on",
-  "lsp": {
-    "clangd": {
-      "binary": {
-        // "path": "C:\\Program Files\\LLVM\\bin\\clangd.exe",
-        "arguments": [
-          "--clang-tidy",
-          "--function-arg-placeholders=0",
-          "--header-insertion=never"
-        ]
-      }
+  "debugger": {
+    "dock": "left",
+    "timeout": 10000,
+    "save_breakpoints": false
+  },
+  "inlay_hints": {
+    "enabled": false,
+    "show_value_hints": false
+  },
+  "auto_signature_help": false,
+  "show_signature_help_after_edits": false,
+  "languages": {
+    "Python": {
+      "language_servers": ["basedpyright", "!pyright", "ruff"],
+      "format_on_save": "off"
     }
   },
-  "debugger": {
-    "save_breakpoints": false,
-    "dock": "left",
-    "timeout": 10000
-  },
-  "show_signature_help_after_edits": false
+  "lsp_highlight_debounce": 300
 }
