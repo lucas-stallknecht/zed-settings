@@ -2,20 +2,26 @@
   {
     "context": "Editor && showing_completions",
     "bindings": {
-      "ctrl-y": "editor::ConfirmCompletion"
-    }
+      "ctrl-y": "editor::ConfirmCompletion",
+    },
   },
   {
     "context": "Editor && showing_code_actions",
     "bindings": {
-      "ctrl-y": "editor::ConfirmCodeAction"
-    }
+      "ctrl-y": "editor::ConfirmCodeAction",
+    },
   },
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
-      "space i": "editor::ToggleInlayHints"
-    }
+      "space i": "editor::ToggleInlayHints",
+    },
+  },
+  {
+    "context": "Editor && (vim_mode == insert) && !VimWaiting",
+    "bindings": {
+      "shift-space": ["workspace::SendKeystrokes", "_"],
+    },
   },
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
@@ -29,8 +35,8 @@
       "space r": "editor::Rename",
       "g d": "editor::GoToDefinition",
       "g D": "editor::GoToDefinitionSplit",
-      // "g i": "editor::GoToImplementation",
-      // "g I": "editor::GoToImplementationSplit",
+      "g i": "editor::GoToImplementation",
+      "g I": "editor::GoToImplementationSplit",
       "g t": "editor::GoToTypeDefinition",
       "g T": "editor::GoToTypeDefinitionSplit",
       "g r": "editor::FindAllReferences",
@@ -40,34 +46,33 @@
       // Search symbol
       "s s": "outline::Toggle",
 
-      // Diagnostic
       "space x x": "diagnostics::Deploy",
-
-      // Switch between buffers
-      "alt-h": "pane::ActivatePreviousItem",
-      "alt-l": "pane::ActivateNextItem",
-
       "space s f": "file_finder::Toggle",
       "space s g": "pane::DeploySearch",
       "space f": "editor::Format",
-      "space t": "project_panel::ToggleFocus",
-      "space o": "outline_panel::ToggleFocus",
-      "space g": "git_panel::ToggleFocus",
-      "space b": "workspace::ToggleLeftDock"
-    }
+      "ctrl-g": "git_panel::ToggleFocus",
+      "ctrl-b": "workspace::ToggleLeftDock",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-h": "pane::ActivatePreviousItem",
+      "alt-l": "pane::ActivateNextItem",
+    },
   },
   // Empty pane, set of keybindings that are available when there is no active editor
   {
     "context": "EmptyPane || SharedScreen",
     "bindings": {
-      "space s f": "file_finder::Toggle"
-    }
+      "space s f": "file_finder::Toggle",
+    },
   },
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
     "bindings": {
-      "g c": "editor::ToggleComments"
-    }
+      "g c": "editor::ToggleComments",
+    },
   },
   {
     "context": "Terminal",
@@ -75,8 +80,8 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
-    }
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
   },
   {
     "context": "Dock",
@@ -84,43 +89,115 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
-    }
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
   },
   {
     "context": "(Editor && showing_completions)",
     "bindings": {
-      "enter": null
-    }
+      "enter": null,
+    },
   },
   {
     "context": "(Editor && showing_completions)",
     "bindings": {
-      "enter": "editor::Newline"
-    }
+      "enter": "editor::Newline",
+    },
   },
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-;": null
-    }
+      "ctrl-;": null,
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-p": null
-    }
+      "ctrl-p": null,
+    },
   },
   {
     "context": "(FileFinder || FileFinder > Picker > Editor)",
     "bindings": {
-      "ctrl-p": "menu::SelectPrevious"
-    }
+      "ctrl-p": "menu::SelectPrevious",
+    },
   },
   {
     "context": "((FileFinder || FileFinder > Picker > Editor) || FileFinder > Picker > menu)",
     "bindings": {
-      "ctrl-shift-p": null
-    }
-  }
+      "ctrl-shift-p": null,
+    },
+  },
+  {
+    "context": "vim_mode == literal",
+    "unbind": {
+      "ctrl-b": ["vim::Literal", ["ctrl-b", "\u0002"]],
+    },
+  },
+  {
+    "context": "Terminal",
+    "unbind": {
+      "ctrl-b": ["terminal::SendKeystroke", "ctrl-b"],
+    },
+  },
+  {
+    "context": "vim_mode == literal",
+    "unbind": {
+      "ctrl-t": ["vim::Literal", ["ctrl-t", "\u0014"]],
+    },
+  },
+  {
+    "context": "DebugPanel",
+    "unbind": {
+      "ctrl-t": "debugger::ToggleThreadPicker",
+    },
+  },
+  {
+    "context": "KeymapEditor",
+    "unbind": {
+      "ctrl-t": "keymap_editor::ShowMatchingKeybinds",
+    },
+  },
+  {
+    "context": "vim_mode == insert",
+    "unbind": {
+      "ctrl-t": "vim::Indent",
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "ctrl-t": "pane::GoToOlderTag",
+    },
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-t": "project_symbols::Toggle",
+    },
+  },
+  {
+    "context": "vim_mode == literal",
+    "unbind": {
+      "ctrl-g": ["vim::Literal", ["ctrl-g", "\u0007"]],
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "ctrl-g": "vim::ShowLocation",
+    },
+  },
+  {
+    "context": "ThreadsSidebar",
+    "unbind": {
+      "ctrl-g": "agents_sidebar::ToggleThreadHistory",
+    },
+  },
+  {
+    "context": "Editor && mode == full",
+    "unbind": {
+      "ctrl-g": "go_to_line::Toggle",
+    },
+  },
 ]
