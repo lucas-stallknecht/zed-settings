@@ -1,54 +1,116 @@
 {
   "agent": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5-mini"
-    },
-    "model_parameters": []
+    "terminal_init_command": "",
+    "sidebar_side": "right",
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
   },
-  "icon_theme": "Colored Zed Icons Theme Dark",
-  "disable_ai": false,
-  "show_edit_predictions": false,
   "base_keymap": "VSCode",
-  "vim_mode": true,
-  "vim": {},
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
+  "cli_default_open_behavior": "existing_window",
+  "diff_view_style": "unified",
+
+  "format_on_save": "on",
+  "enable_language_server": true,
+  "document_folding_ranges": "on",
+
+  "relative_line_numbers": "enabled",
+  "scrollbar": {
+    "show": "never",
   },
+
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "button": false,
+    "dock": "left",
+  },
+  "git_panel": {
+    "tree_view": true,
+    "dock": "left",
+  },
+
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+  },
+
   "ui_font_size": 15,
-  "buffer_font_size": 14,
+  "buffer_font_size": 13,
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_weight": 300.0,
+  "buffer_line_height": {
+    "custom": 1.5,
+  },
+
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Fleet Dark"
+    "dark": "0x96f Theme",
   },
-  "relative_line_numbers": "enabled",
-  "scrollbar": {
-    "show": "never"
+  "icon_theme": "Colored Zed Icons Theme Dark",
+
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "max_severity": "error",
+    },
   },
-  "toolbar": {
-    "breadcrumbs": false,
-    "quick_actions": false
+
+  "show_signature_help_after_edits": false,
+  "show_edit_predictions": false,
+
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "on_yank",
   },
-  "enable_language_server": true,
-  "format_on_save": "on",
-  "lsp": {
-    "clangd": {
-      "binary": {
-        // "path": "C:\\Program Files\\LLVM\\bin\\clangd.exe",
-        "arguments": [
-          "--clang-tidy",
-          "--function-arg-placeholders=0",
-          "--header-insertion=never"
-        ]
-      }
-    }
-  },
+
   "debugger": {
     "save_breakpoints": false,
     "dock": "left",
-    "timeout": 10000
+    "timeout": 10000,
   },
-  "show_signature_help_after_edits": false
+
+  "disable_ai": false,
+
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+
+  "languages": {
+    "Python": {
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "ruff",
+        },
+      },
+      "code_actions_on_format": {
+        "source.organizeImports.ruff": true,
+      },
+
+      "remove_trailing_whitespace_on_save": true,
+      "use_auto_surround": true,
+      "use_autoclose": true,
+
+      "tab_size": 4,
+      "hard_tabs": false,
+      "preferred_line_length": 88,
+    },
+    "Odin": {
+      "format_on_save": "off",
+    },
+  },
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "typeCheckingMode": "basic",
+      },
+    },
+  },
 }
